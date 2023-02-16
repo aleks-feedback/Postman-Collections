@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "8537aa82-4f3c-4503-975c-19d48f6fac6a",
+		"name": "EmployeeAPIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21138010"
+	},
+	"item": [
+		{
+			"name": "Get all employee data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"name\"] = response.data[1].employee_name == \"Garrett Winters\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single employee data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/5",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new emp record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"David123XYZ\",\"salary\":\"123\",\"age\":\"23\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				},
+				"description": "Получилась ошибка , запись создалась, но после при проверке вывода всех сотрудников, она не показывалась, и при выводе записи по одному сотруднику, вышло сообщение что данные были извлечены успешно"
+			},
+			"response": []
+		},
+		{
+			"name": "Put request update data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Dai Rios\",\"salary\":\"270000\",\"age\":\"40\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/update/20",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/20",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"20"
+					]
+				},
+				"description": "Вышло сообщение о том, что запись удалена , но при повторном отправке запроса GET вышла удалённая запись с сообщением, данные успешно извлечены."
+			},
+			"response": []
+		}
+	]
+}
